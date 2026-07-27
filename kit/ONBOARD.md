@@ -20,13 +20,17 @@ Start with a short, friendly hello and tell me this will take about 10 minutes a
 stop anytime. Then ask me, one at a time, gently:
 - What kind of work do I do? (my field/industry and my role — in my own words)
 - What does a busy day look like? What eats up my time or feels repetitive?
-- What tools do I use most (email, spreadsheets, documents, a scheduling app, etc.)?
+- What apps or systems do I use to get my work done? Ask me to name the specific ones I'm
+  in all day — like ServiceNow, Salesforce, a CRM, Gmail/Outlook, Excel, a ticketing or
+  scheduling tool. (Knowing this lets you help me right inside my real workflows later.)
 - How do I like help: do more of the work for me, or explain as you go?
 Keep it conversational. If an answer is short, that's okay — don't interrogate me.
 
 STEP 2 — Set me up (and show me)
 Using what I told you, quietly write my profile so future chats already know me:
-- Fill in ~/.claude/CLAUDE.md where it has blanks (my field, role, the tools I named).
+- Fill in ~/.claude/CLAUDE.md where it has blanks (my field, role, and the specific tools/
+  systems I named — keep the exact names, e.g. "ServiceNow, Salesforce", so future chats
+  know what I work in).
 - Save a short memory of who I am, my field, and how I like to work.
 Then tell me, in one or two friendly sentences, that you've got me set up — no need to show
 me the files unless I ask.

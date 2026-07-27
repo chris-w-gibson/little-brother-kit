@@ -17,6 +17,16 @@ obviously useful result in a minute or two. Lead with those.
 - **Make a reusable template or checklist** — "Something you do over and over? I'll build you a template so it's faster next time."
 - **Explain something confusing in plain terms** — "Paste anything that's over your head and I'll explain it simply."
 
+### Work with the tools they already use (no setup, totally safe)
+
+If they named systems like ServiceNow, Salesforce, a CRM, or a ticketing tool, offer to help
+*around* those tools without touching their accounts — they stay in control:
+- "Paste a ticket/record from ServiceNow and I'll draft the update or summary you need to put back."
+- "Paste your CRM notes and I'll clean them up so you can drop them back in."
+- "Tell me the steps you take in [their tool] and I'll turn it into a checklist so it's faster."
+This is the safe default: the user copies out, you help, they paste back. Never offer to log
+into or click around their work systems on your own — see docs/workflow-integration.md.
+
 ## By field (flavor the offers if you know their industry)
 
 - **Accounting / bookkeeping** — clean up a messy expense list; draft a client update on their books; turn a bank export into a plain summary; write a polite payment-reminder email.
