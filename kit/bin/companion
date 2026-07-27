@@ -1,0 +1,98 @@
+#!/usr/bin/env bash
+# companion — user-facing control for the Little Brother.
+# Everything here is local and inspectable. No network calls except `companion sync`
+# and `companion update`, both of which are explicit and gated.
+set -euo pipefail
+
+HOME_DIR="${COMPANION_HOME:-$HOME/.companion}"
+CFG="$HOME_DIR/config.json"
+JOURNAL="$HOME_DIR/journal.jsonl"
+
+die() { printf 'companion: %s\n' "$*" >&2; exit 1; }
+need_jq() { command -v jq >/dev/null || die "jq is required (install jq and retry)"; }
+cfg_set() { need_jq; local t; t=$(mktemp); jq "$1" "$CFG" > "$t" && mv "$t" "$CFG"; }
+
+[ -f "$CFG" ] || die "not installed — run the kit install.sh first"
+
+cmd="${1:-status}"; shift || true
+
+case "$cmd" in
+  status)
+    need_jq
+    echo "Little Brother"
+    echo "  kit version:   $(jq -r '.kit_version' "$CFG")"
+    echo "  installed:     $(jq -r '.installed_at' "$CFG")"
+    echo "  telemetry:     $(jq -r 'if .telemetry.enabled and .telemetry.consented then "ON" else "OFF" end' "$CFG")"
+    echo "  consent ver:   $(jq -r '.telemetry.consent_version // "—"' "$CFG")"
+    if [ -f "$JOURNAL" ]; then
+      echo "  journal:       $(wc -l < "$JOURNAL") events ($JOURNAL)"
+      echo "  synced up to:  line $(jq -r '.telemetry.last_synced_line // 0' "$CFG")"
+    else
+      echo "  journal:       (none yet)"
+    fi
+    ;;
+
+  journal)
+    [ -f "$JOURNAL" ] || { echo "(no events journaled yet)"; exit 0; }
+    if command -v jq >/dev/null; then
+      # pretty, newest last; this is YOUR data, shown in full
+      jq -c '.' "$JOURNAL"
+    else
+      cat "$JOURNAL"
+    fi
+    ;;
+
+  telemetry)
+    sub="${1:-}"
+    case "$sub" in
+      on)
+        need_jq
+        [ "$(jq -r '.telemetry.consented' "$CFG")" = "true" ] || \
+          die "can't enable — consent not recorded. Re-run onboarding (ONBOARD.md) to review what syncs."
+        cfg_set '.telemetry.enabled = true'
+        echo "telemetry ON (consented $(jq -r '.telemetry.consent_version' "$CFG"))"
+        ;;
+      off)
+        cfg_set '.telemetry.enabled = false'
+        echo "telemetry OFF. Nothing will sync. Re-enable anytime with: companion telemetry on"
+        ;;
+      *) die "usage: companion telemetry on|off" ;;
+    esac
+    ;;
+
+  sync)
+    # explicit manual sync; normal path is automatic at session end
+    if [ -x "$HOME_DIR/telemetry-sync.sh" ]; then
+      "$HOME_DIR/telemetry-sync.sh" && echo "sync attempted (silent on no-op / not-consented)"
+    else
+      die "sync script missing"
+    fi
+    ;;
+
+  update)
+    # pull the latest kit and re-run install (non-destructive; never touches your config)
+    src="${COMPANION_KIT_REPO:-https://github.com/chris-w-gibson/little-brother.git}"
+    tmp=$(mktemp -d)
+    echo "Fetching latest kit..."
+    git clone --depth 1 -q "$src" "$tmp" || die "clone failed"
+    bash "$tmp/kit/install.sh"
+    # carry over shared learnings if present in the update
+    if [ -f "$tmp/kit/LEARNINGS.md" ]; then
+      cp "$tmp/kit/LEARNINGS.md" "$HOME/.claude/LEARNINGS.md"
+      echo "Updated shared learnings -> ~/.claude/LEARNINGS.md"
+    fi
+    rm -rf "$tmp"
+    ;;
+
+  *)
+    cat <<EOF
+companion — Little Brother control
+
+  companion status              show version, telemetry state, journal size
+  companion journal             print your local usage journal (your data, in full)
+  companion telemetry on|off    enable/disable metadata sync (off = off, always)
+  companion sync                sync journal now (normally automatic at session end)
+  companion update              pull the latest kit + shared learnings
+EOF
+    ;;
+esac
