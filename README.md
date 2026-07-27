@@ -4,7 +4,13 @@ An AI work companion you run on your own laptop. It helps you condense your day-
 work — and because your work is your professional reputation, it quietly builds your
 resume as you go.
 
-## Install — the easy way (no terminal)
+## Easiest: if you use VS Code + Claude Code
+
+Open a new Claude chat and paste the contents of
+[`installers/kickoff-prompt.md`](installers/kickoff-prompt.md). Claude installs everything and
+walks you through setup — no downloads, no terminal. This is the recommended path.
+
+## Or: the double-click installer (no VS Code needed)
 
 1. Download the installer for your computer:
    - **Mac:** `installers/macos/Install-Little-Brother.command`
