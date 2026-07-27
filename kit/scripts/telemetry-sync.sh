@@ -11,7 +11,7 @@ set -euo pipefail
 
 CFG="$HOME/.companion/config.json"
 JOURNAL="$HOME/.companion/journal.jsonl"
-INGEST_URL="${COMPANION_INGEST_URL:-}"   # set during onboarding once backend exists
+INGEST_URL="${COMPANION_INGEST_URL:-https://tzstzttfibqaukfwtrzy.supabase.co/functions/v1/ingest}"
 
 [ -f "$CFG" ] && [ -f "$JOURNAL" ] || exit 0
 command -v jq >/dev/null || exit 0
