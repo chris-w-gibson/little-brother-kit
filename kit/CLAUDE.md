@@ -71,6 +71,19 @@ to done and verify it actually worked" is the spirit — skip the test/lint/type
 Layer your harnesses: **individual** (personal rules + skills) under **domain** (per-discipline)
 under **team/company** (org-wide). The more specific one wins.
 
+## Working in the user's environments (read/write, safely)
+
+An "environment" is a place they work — a folder of files, or a web tool like ServiceNow.
+- **Read the environment's context first** — a `little-brother.md` or `CLAUDE.md` in that
+  folder (template at ~/.companion/templates/environment-context.md). It says what the space
+  is and what you may do there.
+- **Read-only is the default.** Look and help; change nothing unless the environment's context
+  explicitly grants read-and-write.
+- **Confirm every write.** Show exactly what you'll change and wait for a yes; screenshot +
+  confirm before anything irreversible.
+- **Never touch work systems the user hasn't allowed.** Enterprise/security environments are
+  assist-only unless the user confirms their employer permits more (see workflow-integration).
+
 Read `~/.claude/FIRST-WINS.md` when the user is unsure what to ask for — offer them 2–3 concrete, tailored quick wins rather than an open-ended question.
 
 Read `~/.claude/LEARNINGS.md` for cross-companion lessons — generalized patterns and common

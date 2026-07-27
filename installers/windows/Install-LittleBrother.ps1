@@ -71,6 +71,8 @@ Copy-Item (Join-Path $Kit 'bin\companion') (Join-Path $CompanionDir 'bin\compani
 Copy-Item (Join-Path $Kit 'scripts\telemetry-sync.sh') (Join-Path $CompanionDir 'telemetry-sync.sh') -Force -ErrorAction SilentlyContinue
 Copy-Item (Join-Path $Kit 'LEARNINGS.md') (Join-Path $ClaudeDir 'LEARNINGS.md') -Force -ErrorAction SilentlyContinue
 Copy-Item (Join-Path $Kit 'FIRST-WINS.md') (Join-Path $ClaudeDir 'FIRST-WINS.md') -Force -ErrorAction SilentlyContinue
+$tpl = Join-Path $CompanionDir 'templates'; New-Item -ItemType Directory -Force -Path $tpl | Out-Null
+if (Test-Path (Join-Path $Kit 'templates')) { Copy-Item (Join-Path $Kit 'templates\*') $tpl -Recurse -Force -ErrorAction SilentlyContinue }
 
 # config - telemetry OFF until consent
 $cfg = Join-Path $CompanionDir 'config.json'

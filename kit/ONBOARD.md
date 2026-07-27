@@ -63,6 +63,8 @@ Wrap up warmly:
 - Tell me in plain words what you can help me with, tailored to my job (3 concrete examples).
 - Remind me I can just talk to you normally — I can say "turn off usage sharing," "show me my
   journal," or "give me resume bullets" anytime, no special commands needed.
+- Mention that when I'm ready, you can set up a "space" for a folder or a tool I use — you'll
+  read a short note about it and only make changes if I say you can, always checking first.
 - Tell me it's okay to come back with anything, even small stuff, and that whoever invited me
   is happy to help if I get stuck.
 Then let me try one of the things you suggested.
