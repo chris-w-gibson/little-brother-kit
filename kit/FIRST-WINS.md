@@ -25,6 +25,9 @@ obviously useful result in a minute or two. Lead with those.
 - **Marketing** — turn one idea into a week of social posts; rewrite copy for a different audience; summarize campaign numbers into a simple update; draft a newsletter section.
 - **Sales** — draft a follow-up sequence; tidy up CRM notes; summarize a long email chain before a call; write a crisp recap after a meeting.
 - **Education** — draft a lesson outline; turn a rubric into feedback comments; summarize readings; write a parent update.
+- **Software sales (SaaS)** — draft a prospecting email or follow-up sequence; tidy up CRM notes after a call; summarize a long deal thread before you dial in; write a crisp post-demo recap; turn a call into clear next steps.
+- **Supply-chain QA / quality analyst** — turn inspection or audit notes into a clean report; summarize a supplier quality issue for stakeholders; build a QA checklist or corrective-action (CAPA) template; compare two spec sheets and flag the differences; turn raw defect data into a plain summary.
+- **Cybersecurity / security analyst** — explain a security alert or incident in plain terms for non-technical folks; draft an incident write-up or timeline; turn a scan result into a prioritized to-do list; write a clear policy or procedure; draft a phishing-awareness note for staff. (Help with the writing and explaining — not running security operations.)
 - **Operations / admin / nonprofit** — turn a process in your head into a written SOP; draft a grant or report section; build a tracking checklist; summarize a long doc for your team.
 
 ## After the win
