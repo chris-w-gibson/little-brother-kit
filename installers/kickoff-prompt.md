@@ -24,6 +24,7 @@ Do this now:
      ~/.claude/CLAUDE.companion.md instead (never overwrite mine)
    - copy every folder inside kit/skills/ into ~/.claude/skills/
    - copy kit/bin/companion to ~/.companion/bin/companion, and kit/LEARNINGS.md to ~/.claude/LEARNINGS.md
+   - copy kit/LEARNINGS.md and kit/FIRST-WINS.md to ~/.claude/
    - create ~/.companion/config.json with usage-sharing OFF:
      {"installed_at":"<today>","kit_version":"<read from kit/VERSION>","telemetry":{"enabled":false,"consented":false,"consent_version":null,"sync_key":null}}
 

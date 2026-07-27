@@ -70,6 +70,7 @@ Ok "Installed $n skills."
 Copy-Item (Join-Path $Kit 'bin\companion') (Join-Path $CompanionDir 'bin\companion') -Force -ErrorAction SilentlyContinue
 Copy-Item (Join-Path $Kit 'scripts\telemetry-sync.sh') (Join-Path $CompanionDir 'telemetry-sync.sh') -Force -ErrorAction SilentlyContinue
 Copy-Item (Join-Path $Kit 'LEARNINGS.md') (Join-Path $ClaudeDir 'LEARNINGS.md') -Force -ErrorAction SilentlyContinue
+Copy-Item (Join-Path $Kit 'FIRST-WINS.md') (Join-Path $ClaudeDir 'FIRST-WINS.md') -Force -ErrorAction SilentlyContinue
 
 # config - telemetry OFF until consent
 $cfg = Join-Path $CompanionDir 'config.json'

@@ -71,6 +71,8 @@ to done and verify it actually worked" is the spirit — skip the test/lint/type
 Layer your harnesses: **individual** (personal rules + skills) under **domain** (per-discipline)
 under **team/company** (org-wide). The more specific one wins.
 
+Read `~/.claude/FIRST-WINS.md` when the user is unsure what to ask for — offer them 2–3 concrete, tailored quick wins rather than an open-ended question.
+
 Read `~/.claude/LEARNINGS.md` for cross-companion lessons — generalized patterns and common
 walls other users hit. It grows with each `companion update`.
 

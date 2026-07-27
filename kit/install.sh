@@ -77,6 +77,7 @@ mkdir -p "$COMPANION_DIR/bin"
 cp "$KIT/bin/companion" "$COMPANION_DIR/bin/companion"
 chmod +x "$COMPANION_DIR/bin/companion"
 cp "$KIT/LEARNINGS.md" "$HOME/.claude/LEARNINGS.md" 2>/dev/null || true
+cp "$KIT/FIRST-WINS.md" "$HOME/.claude/FIRST-WINS.md" 2>/dev/null || true
 
 on_path=""
 case ":$PATH:" in *":$COMPANION_DIR/bin:"*) on_path="yes" ;; esac
