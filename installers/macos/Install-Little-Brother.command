@@ -73,6 +73,7 @@ cp "$KIT/scripts/telemetry-sync.sh" "$COMPANION_DIR/telemetry-sync.sh" 2>/dev/nu
 cp "$KIT/LEARNINGS.md" "$CLAUDE_DIR/LEARNINGS.md" 2>/dev/null
 cp "$KIT/FIRST-WINS.md" "$CLAUDE_DIR/FIRST-WINS.md" 2>/dev/null
 mkdir -p "$COMPANION_DIR/templates"; cp -r "$KIT/templates/." "$COMPANION_DIR/templates/" 2>/dev/null
+mkdir -p "$COMPANION_DIR/career"; [ -f "$COMPANION_DIR/career/journal.md" ] || cp "$KIT/templates/career-journal.md" "$COMPANION_DIR/career/journal.md" 2>/dev/null
 
 # config — telemetry OFF until consent during onboarding
 if [ ! -f "$COMPANION_DIR/config.json" ]; then

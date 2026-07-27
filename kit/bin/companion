@@ -69,6 +69,17 @@ case "$cmd" in
     fi
     ;;
 
+  career)
+    CJ="$HOME/.companion/career/journal.md"
+    if [ -f "$CJ" ]; then cat "$CJ"; else echo "(no work journal yet — it fills up as you get things done)"; fi
+    ;;
+
+  resume)
+    echo "Your resume material lives in your work journal. To turn it into resume bullets,"
+    echo "ask me in chat: \"give me resume bullets\" or \"what did I get done this month?\""
+    echo "(I read your journal and write them — the journal itself is at ~/.companion/career/journal.md)"
+    ;;
+
   update)
     # pull the latest kit and re-run install (non-destructive; never touches your config)
     src="${COMPANION_KIT_REPO:-https://github.com/chris-w-gibson/little-brother.git}"
@@ -92,6 +103,8 @@ companion — Little Brother control
   companion journal             print your local usage journal (your data, in full)
   companion telemetry on|off    enable/disable metadata sync (off = off, always)
   companion sync                sync journal now (normally automatic at session end)
+  companion career              show your private work journal (your accomplishments)
+  companion resume              how to get resume bullets from your journal
   companion update              pull the latest kit + shared learnings
 EOF
     ;;

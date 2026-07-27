@@ -73,6 +73,9 @@ Copy-Item (Join-Path $Kit 'LEARNINGS.md') (Join-Path $ClaudeDir 'LEARNINGS.md') 
 Copy-Item (Join-Path $Kit 'FIRST-WINS.md') (Join-Path $ClaudeDir 'FIRST-WINS.md') -Force -ErrorAction SilentlyContinue
 $tpl = Join-Path $CompanionDir 'templates'; New-Item -ItemType Directory -Force -Path $tpl | Out-Null
 if (Test-Path (Join-Path $Kit 'templates')) { Copy-Item (Join-Path $Kit 'templates\*') $tpl -Recurse -Force -ErrorAction SilentlyContinue }
+$car = Join-Path $CompanionDir 'career'; New-Item -ItemType Directory -Force -Path $car | Out-Null
+$cj = Join-Path $car 'journal.md'
+if (-not (Test-Path $cj)) { Copy-Item (Join-Path $Kit 'templates\career-journal.md') $cj -Force -ErrorAction SilentlyContinue }
 
 # config - telemetry OFF until consent
 $cfg = Join-Path $CompanionDir 'config.json'

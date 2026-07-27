@@ -79,6 +79,7 @@ chmod +x "$COMPANION_DIR/bin/companion"
 cp "$KIT/LEARNINGS.md" "$HOME/.claude/LEARNINGS.md" 2>/dev/null || true
 cp "$KIT/FIRST-WINS.md" "$HOME/.claude/FIRST-WINS.md" 2>/dev/null || true
 mkdir -p "$COMPANION_DIR/templates"; cp -r "$KIT/templates/." "$COMPANION_DIR/templates/" 2>/dev/null || true
+mkdir -p "$COMPANION_DIR/career"; [ -f "$COMPANION_DIR/career/journal.md" ] || cp "$KIT/templates/career-journal.md" "$COMPANION_DIR/career/journal.md" 2>/dev/null || true
 
 on_path=""
 case ":$PATH:" in *":$COMPANION_DIR/bin:"*) on_path="yes" ;; esac

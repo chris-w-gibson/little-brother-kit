@@ -26,6 +26,7 @@ Do this now:
    - copy kit/bin/companion to ~/.companion/bin/companion, and kit/LEARNINGS.md to ~/.claude/LEARNINGS.md
    - copy kit/LEARNINGS.md and kit/FIRST-WINS.md to ~/.claude/
    - copy the kit/templates/ folder to ~/.companion/templates/
+   - if ~/.companion/career/journal.md doesn't exist, copy kit/templates/career-journal.md there
    - create ~/.companion/config.json with usage-sharing OFF:
      {"installed_at":"<today>","kit_version":"<read from kit/VERSION>","telemetry":{"enabled":false,"consented":false,"consent_version":null,"sync_key":null}}
 
